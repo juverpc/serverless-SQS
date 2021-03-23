@@ -25,7 +25,10 @@ functions:
     handler: lambda/lambda_01.greetings
     events:
       - sqs:
-          arn: !Ref ServerlessQueue
+          arn:
+            Fn::GetAtt:
+              - ServerlessQueue
+              - Arn
         
     package:
       include:
