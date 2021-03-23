@@ -1,0 +1,41 @@
+service: second-test
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+  role: arn:aws:iam::624733648801:role/Role-serverless-function
+  deploymentBucket:
+    name: codebuildjuver
+    serverSideEncryption: AES256
+  #deploymentPrefix: serverless/example
+  
+plugins:
+  - serverless-deployment-bucket
+
+package:
+  individually: true
+  exclude:
+    - "**"
+    
+functions:
+  lambda-01:
+    handler: lambda/lambda_01.greetings
+    events:
+      - sqs:
+          arn: !Ref ServerlessQueue
+        
+    package:
+      include:
+        - lambda/lambda_01.py
+           
+  
+resources:
+  Resources:
+    ServerlessQueue:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: "ServerlessQueueTest"
+  
