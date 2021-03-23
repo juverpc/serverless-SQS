@@ -36,6 +36,21 @@ functions:
     package:
       include:
         - lambda/lambda_01.py
+  lambda-02:
+    handler: lambda/lambda_02.greetings
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - ServerlessQueue
+              - Arn
+      - sns:
+          arn: !Ref ServerlessTopic
+          topicName: ServerlessTopicTest
+        
+    package:
+      include:
+        - lambda/lambda_02.py
            
   
 resources:
