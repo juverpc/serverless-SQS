@@ -25,7 +25,7 @@ ecr:
    scanOnPush: true
    images:
      test-image:
-       path: ./lambdas/
+       path: ./lambda/
        file: Dockerfile
 functions:
   lambda-01:
