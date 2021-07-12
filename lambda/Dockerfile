@@ -1,4 +1,4 @@
-FROM public.ecr.aws/k8f3a7e4/python3.6:latest
+FROM public.ecr.aws/lambda/python:3.6
 RUN yum update -y
 
 # Working directory
