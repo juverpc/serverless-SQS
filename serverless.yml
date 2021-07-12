@@ -1,6 +1,6 @@
 service: second-test
 
-frameworkVersion: '2'
+frameworkVersion: "2"
 
 provider:
   name: aws
@@ -12,23 +12,20 @@ provider:
     name: codebuildjuver
     serverSideEncryption: AES256
   #deploymentPrefix: serverless/example
-  
+
 plugins:
   - serverless-deployment-bucket
-
 
 ecr:
   # In this section you can define images that will be built locally and uploaded to ECR
   scanOnPush: true
   images:
     lambda-01-image:
-        path: ./lambda/
-        file: Dockerfile
+      path: ./lambda/
+      file: Dockerfile
 functions:
   lambda-01:
-     image:
-        name: lambda-01-image
-        command:
-          - lambda_function.lambda_handler
-    
-  
+    image:
+      name: lambda-01-image
+      command:
+        - lambda_function.lambda_handler
