@@ -9,8 +9,8 @@ phases:
       - npm install -g serverless
       - npm install serverless-deployment-bucket 
       - ASSUME_ROLE_ARN="arn:aws:iam::624733648801:role/Secretassumerole"
-      - TEMP_ROLE='aws sts assume-role --role-arn $ASSUME_ROLE_ARN --role-session-name test'
-      - export TEMP_ROLE
+      - export TEMP_ROLE='aws sts assume-role --role-arn $ASSUME_ROLE_ARN --role-session-name test'
+      - echo $TEMP_ROLE
       - export AWS_ACCESS_KEY_ID=$(echo "${TEMP_ROLE}" | jq -r '.Credentials.AccessKeyId')
       - echo $AWS_ACCESS_KEY_ID
       - export AWS_SECRET_ACCESS_KEY=$(echo "${TEMP_ROLE}" | jq -r '.Credentials.SecretAccessKey')
