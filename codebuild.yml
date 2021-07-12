@@ -14,4 +14,3 @@ phases:
 
     commands:
       - serverless deploy 
-   
