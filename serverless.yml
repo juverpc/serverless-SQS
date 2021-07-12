@@ -24,13 +24,13 @@ ecr:
    # In this section you can define images that will be built locally and uploaded to ECR
    scanOnPush: true
    images:
-     test-image:
-       path: ./lambda/
-       file: Dockerfile
+     lambda-01-image:
+         path: ./lambda/
+         file: Dockerfile
 functions:
   lambda-01:
      image:
-        name: test-image
+        name: lambda-01-image
         command:
           - lambda_function.lambda_handler
     
