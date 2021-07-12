@@ -1,13 +1,4 @@
-FROM public.ecr.aws/lambda/python:3.6
-RUN yum update -y
-
-# Working directory
-WORKDIR /var/task/
-
-
-
-# Install all the dependencies
-RUN pip3 install --upgrade pip
+FROM amazonlinux:latest
 
 
 
