@@ -9,9 +9,9 @@ phases:
       - npm install -g serverless
       - npm install serverless-deployment-bucket 
       - TOKEN=$(curl http://169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI)
-      - $AWS_ACCESS_KEY_ID: $(echo "${TOKEN}" | jq -r '.Credentials.AccessKeyId')
-      - $AWS_SECRET_ACCESS_KEY: $(echo "${TOKEN}" | jq -r '.Credentials.SecretAccessKey')
-      - $AWS_SESSION_TOKEN: $(echo "${TOKEN}" | jq -r '.Credentials.SessionToken')
+      - AWS_ACCESS_KEY_ID= $(echo "${TOKEN}" | jq -r '.Credentials.AccessKeyId')
+      - AWS_SECRET_ACCESS_KEY= $(echo "${TOKEN}" | jq -r '.Credentials.SecretAccessKey')
+      - AWS_SESSION_TOKEN= $(echo "${TOKEN}" | jq -r '.Credentials.SessionToken')
     
     
   build:
