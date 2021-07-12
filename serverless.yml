@@ -6,7 +6,8 @@ provider:
   name: aws
   runtime: python3.8
   lambdaHashingVersion: 20201221
-  role: arn:aws:iam::624733648801:role/Role-serverless-function
+  iam:
+    role: arn:aws:iam::624733648801:role/Role-serverless-function
   deploymentBucket:
     name: codebuildjuver
     serverSideEncryption: AES256
