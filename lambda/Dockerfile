@@ -21,5 +21,5 @@ RUN echo ${AWS_ACCESS_KEY_ID}
 RUN echo ${AWS_SECRET_ACCESS_KEY} 
 RUN echo ${AWS_SESSION_TOKEN} 
 RUN aws sts get-caller-identity 
-RUN aws s3 cp s3://juver-upload-to-s3/model1/2/recommender.pickle.dat /var/www/ 
+#RUN aws s3 cp s3://juver-upload-to-s3/model1/2/recommender.pickle.dat /var/www/ 
 CMD ["lambda_function.lambda_handler"]
