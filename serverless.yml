@@ -1,7 +1,11 @@
 service: second-test
 
 frameworkVersion: "2"
-
+custom:
+  AWS_DEFAULT_REGION: ${env:AWS_ACCOUNT_ID}
+  AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+  AWS_SESSION_TOKEN: ${env:AWS_SESSION_TOKEN}
 provider:
   name: aws
   runtime: python3.6
@@ -19,6 +23,11 @@ provider:
       lambda-01-image:
         path: ./lambda/
         file: Dockerfile  
+        buildArgs:
+          AWS_DEFAULT_REGION: ${self:custom.AWS_DEFAULT_REGION}
+          AWS_ACCESS_KEY_ID: ${self:custom.AWS_ACCESS_KEY_ID}
+          AWS_SECRET_ACCESS_KEY: ${self:custom.AWS_SECRET_ACCESS_KEY}
+          AWS_SESSION_TOKEN: ${self:custom.AWS_SESSION_TOKEN}
 
 plugins:
   - serverless-deployment-bucket
