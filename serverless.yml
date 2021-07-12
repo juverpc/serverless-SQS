@@ -4,7 +4,7 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.6
   lambdaHashingVersion: 20201221
   iam:
     role: arn:aws:iam::624733648801:role/Role-serverless-function
@@ -16,17 +16,14 @@ provider:
 plugins:
   - serverless-deployment-bucket
 
-package:
-  individually: true
-  exclude:
-    - "**"
+
 ecr:
-   # In this section you can define images that will be built locally and uploaded to ECR
-   scanOnPush: true
-   images:
-     lambda-01-image:
-         path: ./lambda/
-         file: Dockerfile
+  # In this section you can define images that will be built locally and uploaded to ECR
+  scanOnPush: true
+  images:
+    lambda-01-image:
+        path: ./lambda/
+        file: Dockerfile
 functions:
   lambda-01:
      image:
