@@ -2,9 +2,10 @@ service: second-test
 
 frameworkVersion: "2"
 custom:
-  AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-  AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
-  AWS_SESSION_TOKEN: ${env:AWS_SESSION_TOKEN}
+  AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
+  #AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+  #AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+  #AWS_SESSION_TOKEN: ${env:AWS_SESSION_TOKEN}
 provider:
   name: aws
   runtime: python3.6
@@ -24,9 +25,10 @@ provider:
         file: Dockerfile  
         buildArgs:
           AWS_DEFAULT_REGION: ${self:provider.region}
-          AWS_ACCESS_KEY_ID: ${self:custom.AWS_ACCESS_KEY_ID}
-          AWS_SECRET_ACCESS_KEY: ${self:custom.AWS_SECRET_ACCESS_KEY}
-          AWS_SESSION_TOKEN: ${self:custom.AWS_SESSION_TOKEN}
+          AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${self:custom.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
+          #AWS_ACCESS_KEY_ID: ${self:custom.AWS_ACCESS_KEY_ID}
+          #AWS_SECRET_ACCESS_KEY: ${self:custom.AWS_SECRET_ACCESS_KEY}
+          #AWS_SESSION_TOKEN: ${self:custom.AWS_SESSION_TOKEN}
 
 plugins:
   - serverless-deployment-bucket
