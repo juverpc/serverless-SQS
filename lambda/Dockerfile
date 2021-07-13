@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM public.ecr.aws/amazonlinux/amazonlinux:2.0.20210701.0-arm64v8
 
 
 
