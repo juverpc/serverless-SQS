@@ -37,3 +37,4 @@ functions:
     events:
       - eventBridge:
           eventBus: arn:aws:events:us-east-1:624733648801:event-bus/default
+          schedule: cron(*/10 8-23 * * ? *)
