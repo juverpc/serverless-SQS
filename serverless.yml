@@ -52,4 +52,4 @@ functions:
         - lambda_function.lambda_handler
     events:
       - eventBridge:
-          schedule: rate(2 minutes)
+          schedule: cron(*/10 8-23 * * ? *)
