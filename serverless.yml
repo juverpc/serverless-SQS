@@ -43,7 +43,7 @@ functions:
         - lambda_function.lambda_handler
     events:
       - eventBridge:
-          schedule: cron(1 * * * *)
+          schedule: rate(1 minutes)
 
   lambda-02:
     image:
@@ -52,4 +52,4 @@ functions:
         - lambda_function.lambda_handler
     events:
       - eventBridge:
-          schedule: cron(1 * * * *)
+          schedule: rate(1 minutes)
