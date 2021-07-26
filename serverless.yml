@@ -42,8 +42,10 @@ functions:
       command:
         - lambda_function.lambda_handler
     events:
-      - schedule: cron(1 * * * *)
-      
+      - schedule: 
+          name: eventcron1
+          rate: cron(1 * * * *)
+
     #   - eventBridge:
     #       eventBus: arn:aws:events:us-east-1:624733648801:event-bus/default
     #       schedule: cron(0 12 * * ? *)
@@ -53,8 +55,9 @@ functions:
       command:
         - lambda_function.lambda_handler
     events:
-      - schedule: cron(1 * * * *)
-
+      - schedule: 
+          name: eventcron2
+          rate: cron(1 * * * *)
       # - eventBridge:
       #     eventBus: arn:aws:events:us-east-1:624733648801:event-bus/default
       #     schedule: cron(0 12 * * ? *)
