@@ -16,13 +16,13 @@ provider:
     # In this section you can define images that will be built locally and uploaded to ECR
     scanOnPush: true
     images:
-      lambda-01-image:
+      lambda-01-images:
         path: ./lambda/lambda01
         file: Dockerfile  
         buildArgs:
           AWS_DEFAULT_REGION: ${self:provider.region}
           AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
-      lambda-02-image:
+      lambda-02-images:
         path: ./lambda/lambda02
         file: Dockerfile  
         buildArgs:
@@ -38,18 +38,18 @@ plugins:
 functions:
   lambda-01:
     image:
-      name: lambda-01-image
+      name: lambda-01-images
       command:
         - lambda_function.lambda_handler
     events:
       - eventBridge:
-          schedule: rate(1 minutes)
+          schedule: rate(2 minutes)
 
   lambda-02:
     image:
-      name: lambda-02-image
+      name: lambda-02-images
       command:
         - lambda_function.lambda_handler
     events:
       - eventBridge:
-          schedule: rate(1 minutes)
+          schedule: rate(2 minutes)
