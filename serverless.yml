@@ -45,6 +45,7 @@ functions:
     events:
       - eventBridge:
           schedule: cron(*/10 8-23 * * ? *)
+          description: serverless test lambda-01
 
   lambda-02:
     image:
@@ -54,3 +55,4 @@ functions:
     events:
       - eventBridge:
           schedule: cron(*/10 8-23 * * ? *)
+          description: serverless test lambda-02
