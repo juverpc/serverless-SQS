@@ -56,3 +56,4 @@ functions:
       - eventBridge:
           schedule: cron(*/10 8-23 * * ? *)
           Description: serverless test lambda-02
+          
