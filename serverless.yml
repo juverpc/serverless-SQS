@@ -23,6 +23,8 @@ provider:
         buildArgs:
           AWS_DEFAULT_REGION: ${self:provider.region}
           AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
+          DATA_BUCKET: ${env:DATA_BUCKET}
+          MODEL_PATH: ${env:MODEL_PATH}
       lambda-02-images:
         path: ./lambda/lambda02
         file: Dockerfile  
