@@ -62,6 +62,7 @@ resources:
     ruletestserverless:
       Type: AWS::Events::Rule
       Properties:
+        Name: testrule
         EventBusName: 'default'
         Description: "Test from serverless Framework"
         #RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
