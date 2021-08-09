@@ -76,7 +76,7 @@ resources:
                 - prefix: juver-upload-to-s3/model1/1/
         Targets:
             - 
-              Arn: 'arn:aws:codepipeline:us-east-1:624733648801:TestAmplifyPipeline'
+              Arn: 'arn:aws:sagemaker:us-east-1:624733648801:pipeline/pipelinenametest2'
               Id: 'Id1234'
               RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
     
