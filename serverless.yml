@@ -78,5 +78,5 @@ resources:
             - 
               Arn: 'arn:aws:codepipeline:us-east-1:624733648801:TestAmplifyPipeline'
               Id: 'Id1234'
-              #RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
+              RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
     
