@@ -71,9 +71,10 @@ resources:
             eventName: 
               - "PutObject"
             requestParameters:
-              bucketName: juver-upload-to-s3 #juver-upload-to-s3/model1/2/
+              bucketName: 
+                - 'juver-upload-to-s3' #juver-upload-to-s3/model1/2/
           
           Targets:
             - Arn: 'arn:aws:codepipeline:us-east-1:624733648801:TestAmplifyPipeline'
-              Id: Id1234
+              Id: 'Id1234'
               RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
