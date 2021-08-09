@@ -59,7 +59,7 @@ provider:
 
 resources:
   Resources:
-    rule-test-serverless:
+    ruletestserverless:
       Type: AWS::Events::Rule
       Properties:
         EventBusName: 'default'
