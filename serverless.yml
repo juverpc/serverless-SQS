@@ -70,10 +70,10 @@ resources:
             - aws.s3
           detail: 
             eventName: 
-              - "PutObject"
+              - PutObject
             requestParameters:
               bucketName: 
-                - 'juver-upload-to-s3' #juver-upload-to-s3/model1/2/
+                - prefix: juver-upload-to-s3/model1/1/
         Targets:
             - 
               Arn: 'arn:aws:codepipeline:us-east-1:624733648801:TestAmplifyPipeline'
