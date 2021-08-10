@@ -84,4 +84,4 @@ resources:
               Arn: 'arn:aws:sagemaker:us-east-1:624733648801:pipeline/pipelinenametest2'
               Id: 'Id1234'
               RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
-              Input: '{ "stand_menu_uuid": " e0b09ee1-1dbf-46b5-87be-33852007547b" }'
+              Input: '{ "stand_menu_uuid": "" }'
