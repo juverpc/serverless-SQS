@@ -76,7 +76,8 @@ resources:
             eventName: 
               - PutObject
             requestParameters:
-              bucketName: juver-upload-to-s3
+              bucketName: 
+                - juver-upload-to-s3
               key: 
                 - prefix: model1/1
         Targets:
