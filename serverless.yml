@@ -62,7 +62,6 @@ resources:
     ruletestserverless:
       Type: AWS::Events::Rule
       Properties:
-        Name: testrule
         EventBusName: 'default'
         Description: "Test from serverless Framework"
         #RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
@@ -70,18 +69,19 @@ resources:
         EventPattern:
           source:
             - aws.s3
+          account: '624733648801'
           detail: 
             eventSource: 
               - s3.amazonaws.com
             eventName: 
               - PutObject
             requestParameters:
-              bucketName: 
-                - prefix: juver-upload-to-s3/model1/1/
+              bucketName: juver-upload-to-s3
+              key: 
+                - prefix: model1/1
         Targets:
             - 
               Arn: 'arn:aws:sagemaker:us-east-1:624733648801:pipeline/pipelinenametest2'
               Id: 'Id1234'
               RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
               Input: '{ "stand_menu_uuid": " e0b09ee1-1dbf-46b5-87be-33852007547b" }'
-    
