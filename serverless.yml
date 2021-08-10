@@ -69,7 +69,8 @@ resources:
         EventPattern:
           source:
             - aws.s3
-          account: '624733648801'
+          account: 
+            - 624733648801
           detail: 
             eventSource: 
               - s3.amazonaws.com
