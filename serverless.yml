@@ -70,7 +70,7 @@ resources:
           source:
             - aws.s3
           account: 
-            - '624733648801'
+            - 624733648801
           detail: 
             eventSource: 
               - s3.amazonaws.com
