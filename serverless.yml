@@ -19,22 +19,19 @@ provider:
 #     images:
 #       lambda-01-images:
 #         path: ./lambda/lambda01
-#         file: Dockerfile  
+#         file: Dockerfile
 #         buildArgs:
 #           AWS_DEFAULT_REGION: ${self:provider.region}
 #           AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
 #       # lambda-02-images:
 #       #   path: ./lambda/lambda02
-#       #   file: Dockerfile  
+#       #   file: Dockerfile
 #       #   buildArgs:
 #       #     AWS_DEFAULT_REGION: ${self:provider.region}
 #       #     AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
-      
-         
 
 # plugins:
 #   - serverless-deployment-bucket
-
 
 # functions:
 #   lambda-01:
@@ -42,72 +39,42 @@ provider:
 #       name: lambda-01-images
 #       command:
 #         - lambda_function.lambda_handler
-    # events:
-    #   - eventBridge:
-    #       schedule: cron(*/10 8-23 * * ? *)
-    #       Description: serverless test lambda-01
+# events:
+#   - eventBridge:
+#       schedule: cron(*/10 8-23 * * ? *)
+#       Description: serverless test lambda-01
 
-  # lambda-02:
-  #   image:
-  #     name: lambda-02-images
-  #     command:
-  #       - lambda_function.lambda_handler
-  #   events:
-  #     - eventBridge:
-  #         schedule: cron(*/10 8-23 * * ? *)
-  #         Description: serverless test lambda-02
+# lambda-02:
+#   image:
+#     name: lambda-02-images
+#     command:
+#       - lambda_function.lambda_handler
+#   events:
+#     - eventBridge:
+#         schedule: cron(*/10 8-23 * * ? *)
+#         Description: serverless test lambda-02
 
 resources:
   Resources:
     appconfig-test-serverless:
       Type: AWS::AppConfig::Application
-      Properties: 
-        Name: appconfig-test-serverless
-       
+      Properties:
+        Name: "appconfig-test-serverless"
+
     configuration-profile:
       Type: AWS::AppConfig::ConfigurationProfile
       DependsOn: appconfig-test-serverless
-      Properties: 
+      Properties:
         ApplicationId: !Ref appconfig-test-serverless
-        Description: 'configuration profile from serverless'
-        LocationUri: 's3://juver-upload-to-s3/test.json'
-        Name: 'config-profile-f'
+        Description: "configuration profile from serverless"
+        LocationUri: "s3://juver-upload-to-s3/test.json"
+        Name: "config-profile-f"
         RetrievalRoleArn: https://console.aws.amazon.com/iam/home?region=us-east-1#/roles/AWSAppConfigServiceRole-appconfig-profile-test
-       
-            
-    environment-appconfig-serverless:   
+
+    environment-appconfig-serverless:
       Type: AWS::AppConfig::Environment
       DependsOn: appconfig-test-serverless
-      Properties: 
+      Properties:
         ApplicationId: !Ref appconfig-test-serverless
-        Description: 'test serverless'
-        Name: 'dev'
-      
-#     ruletestserverless:
-#       Type: AWS::Events::Rule
-#       Properties:
-#         EventBusName: 'default'
-#         Description: "Test from serverless Framework"
-#         #RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
-#         State: 'ENABLED'
-#         EventPattern:
-#           source:
-#             - aws.s3
-#           account: 
-#             - 624733648801
-#           detail: 
-#             eventSource: 
-#               - s3.amazonaws.com
-#             eventName: 
-#               - PutObject
-#             requestParameters:
-#               bucketName: 
-#                 - juver-upload-to-s3
-#               key: 
-#                 - prefix: model1/1
-#         Targets:
-#             - 
-#               Arn: 'arn:aws:sagemaker:us-east-1:624733648801:pipeline/pipelinenametest2'
-#               Id: 'Id1234'
-#               RoleArn: 'arn:aws:iam::624733648801:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'
-#               Input: '{ "stand_menu_uuid": "" }'
+        Description: "test serverless"
+        Name: "dev"
