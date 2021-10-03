@@ -177,6 +177,13 @@ resources:
         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda02"
         Action: lambda:InvokeFunction
         Principal: 438272768936
+    Lambda03LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda03LambdaFunction
+      Properties:
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda03"
+        Action: lambda:InvokeFunction
+        Principal: 438272768936
     Lambda04LambdaPermission:
       Type: "AWS::Lambda::Permission"
       DependsOn: Lambda04LambdaFunction
