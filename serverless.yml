@@ -61,7 +61,7 @@ resources:
       Properties:
         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda01"
         Action: lambda:InvokeFunction
-        Principal: arn:aws:iam::${self:config.principal_id_account}:role/${self:config.principal_role_name}
+        Principal: arn:aws:iam::${self:custom.principal_id_account}:role/${self:custom.principal_role_name}
     Lambda02LambdaPermission:
       Type: "AWS::Lambda::Permission"
       DependsOn: Lambda02LambdaFunction
