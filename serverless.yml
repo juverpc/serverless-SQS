@@ -12,8 +12,6 @@ custom:
     perFunction: false
     perType: true
   aws_account: '624733648801'
-  principal_id_account: '438272768936'
-  principal_role_name: test-lambda
 provider:
   name: aws
   runtime: python3.6
@@ -28,7 +26,7 @@ provider:
   stage: dev
  
 
-# functions:
+functions:
   lambda03:
     handler: lambdas/lambda03/lambda_function.lambda_handler
     memorySize: 1024
