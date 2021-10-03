@@ -161,6 +161,59 @@ functions:
     events:
       - schedule:
           rate: cron(*/1 8-23 * * ? *)
+  
+  lambda11:
+    handler: lambdas/lambda11/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda11/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
+  
+  lambda12:
+    handler: lambdas/lambda12/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda12/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
+
+  lambda13:
+    handler: lambdas/lambda13/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda13/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
+  
+  lambda14:
+    handler: lambdas/lambda14/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda14/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
+
 resources:
   Resources:
     Lambda01LambdaPermission:
@@ -231,5 +284,34 @@ resources:
       DependsOn: Lambda10LambdaFunction
       Properties:
         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda10"
+        Action: lambda:InvokeFunction
+        Principal: 438272768936
+    
+    Lambda11LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda11LambdaFunction
+      Properties:
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda11"
+        Action: lambda:InvokeFunction
+        Principal: 438272768936
+    Lambda12LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda12LambdaFunction
+      Properties:
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda12"
+        Action: lambda:InvokeFunction
+        Principal: 438272768936
+    Lambda13LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda13LambdaFunction
+      Properties:
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda13"
+        Action: lambda:InvokeFunction
+        Principal: 438272768936
+    Lambda14LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda14LambdaFunction
+      Properties:
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda14"
         Action: lambda:InvokeFunction
         Principal: 438272768936
