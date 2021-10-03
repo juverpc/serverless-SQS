@@ -9,8 +9,10 @@ plugins:
 
 custom:
   splitStacks:
+    nestedStackCount: 5
     perFunction: false
-    perType: true
+    perType: false
+    perGroupFunction: true
   aws_account: '624733648801'
 provider:
   name: aws
