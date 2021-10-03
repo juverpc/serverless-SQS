@@ -57,17 +57,17 @@ functions:
           rate: cron(*/1 8-23 * * ? *)
     
   lambda03:
-  handler: lambdas/lambda03/lambda_function.lambda_handler
-  memorySize: 1024
-  timeout: 1
-  package:
-    patterns:
-      - "!**"
-      - lambdas/lambda03/*
-    individually: true
-  events:
-    - schedule:
-        rate: cron(*/1 8-23 * * ? *)
+    handler: lambdas/lambda03/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda03/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
   
   lambda04:
     handler: lambdas/lambda04/lambda_function.lambda_handler
