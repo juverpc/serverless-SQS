@@ -62,11 +62,11 @@ resources:
       Properties:
         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda01"
         Action: lambda:InvokeFunction
-        Principal: arn:aws:iam::${self:custom.principal_id_account}:role/${self:custom.principal_role_name}
+        Principal: "arn:aws:iam::438272768936:role/test-lambda"
     Lambda02LambdaPermission:
       Type: "AWS::Lambda::Permission"
       DependsOn: Lambda02LambdaFunction
       Properties:
         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda02"
         Action: lambda:InvokeFunction
-        Principal: arn:aws:iam::${self:custom.principal_id_account}:role/${self:custom.principal_role_name}
+        Principal: "arn:aws:iam::438272768936:role/test-lambda"
