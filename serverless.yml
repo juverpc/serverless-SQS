@@ -28,33 +28,46 @@ provider:
   stage: dev
  
 
-functions:
-  lambda01:
-    handler: lambdas/lambda01/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda01/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+# functions:
+#   lambda03:
+#     handler: lambdas/lambda03/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda03/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
+  
+  # lambda01:
+  #   handler: lambdas/lambda01/lambda_function.lambda_handler
+  #   memorySize: 1024
+  #   timeout: 1
+  #   package:
+  #     patterns:
+  #       - "!**"
+  #       - lambdas/lambda01/*
+  #     individually: true
+  #   events:
+  #     - schedule:
+  #         rate: cron(*/1 8-23 * * ? *)
 
-  lambda02:
-    handler: lambdas/lambda02/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda02/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
-resources:
+  # lambda02:
+  #   handler: lambdas/lambda02/lambda_function.lambda_handler
+  #   memorySize: 1024
+  #   timeout: 1
+  #   package:
+  #     patterns:
+  #       - "!**"
+  #       - lambdas/lambda02/*
+  #     individually: true
+  #   events:
+  #     - schedule:
+  #         rate: cron(*/1 8-23 * * ? *)
+# resources:
   # Resources:
   #   Lambda01LambdaPermission:
   #     Type: "AWS::Lambda::Permission"
