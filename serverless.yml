@@ -18,6 +18,7 @@ provider:
   name: aws
   runtime: python3.6
   eventBridge.useCloudFormation: true
+  variablesResolutionMode: 20210326
   lambdaHashingVersion: 20201221
   iam:
     role: arn:aws:iam::624733648801:role/Role-serverless-function
