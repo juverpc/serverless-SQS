@@ -1,7 +1,19 @@
-service: second-test
+service: serverless
 
 frameworkVersion: "2"
 
+
+plugins:
+  - serverless-deployment-bucket
+  - serverless-plugin-split-stacks
+
+custom:
+  splitStacks:
+    perFunction: false
+    perType: true
+  aws_account: '624733648801'
+  principal_id_account: '438272768936'
+  principal_role_name: test-lambda
 provider:
   name: aws
   runtime: python3.6
@@ -12,69 +24,48 @@ provider:
   deploymentBucket:
     name: codebuildjuver
     serverSideEncryption: AES256
-  #deploymentPrefix: serverless/example
-#   ecr:
-#     # In this section you can define images that will be built locally and uploaded to ECR
-#     scanOnPush: true
-#     images:
-#       lambda-01-images:
-#         path: ./lambda/lambda01
-#         file: Dockerfile
-#         buildArgs:
-#           AWS_DEFAULT_REGION: ${self:provider.region}
-#           AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
-#       # lambda-02-images:
-#       #   path: ./lambda/lambda02
-#       #   file: Dockerfile
-#       #   buildArgs:
-#       #     AWS_DEFAULT_REGION: ${self:provider.region}
-#       #     AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: ${env:AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
+  stage: dev
+ 
 
-# plugins:
-#   - serverless-deployment-bucket
+functions:
+  lambda01:
+    handler: lambdas/lambda01/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda01/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
 
-# functions:
-#   lambda-01:
-#     image:
-#       name: lambda-01-images
-#       command:
-#         - lambda_function.lambda_handler
-# events:
-#   - eventBridge:
-#       schedule: cron(*/10 8-23 * * ? *)
-#       Description: serverless test lambda-01
-
-# lambda-02:
-#   image:
-#     name: lambda-02-images
-#     command:
-#       - lambda_function.lambda_handler
-#   events:
-#     - eventBridge:
-#         schedule: cron(*/10 8-23 * * ? *)
-#         Description: serverless test lambda-02
-
+  lambda02:
+    handler: lambdas/lambda02/lambda_function.lambda_handler
+    memorySize: 1024
+    timeout: 1
+    package:
+      patterns:
+        - "!**"
+        - lambdas/lambda02/*
+      individually: true
+    events:
+      - schedule:
+          rate: cron(*/1 8-23 * * ? *)
 resources:
   Resources:
-    appconfig-test-serverless:
-      Type: AWS::AppConfig::Application
+    Lambda01LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda01LambdaFunction
       Properties:
-        Name: "appconfig-test-serverless"
-
-    configuration-profile:
-      Type: AWS::AppConfig::ConfigurationProfile
-      DependsOn: appconfig-test-serverless
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda01"
+        Action: lambda:InvokeFunction
+        Principal: arn:aws:iam::${self:config.principal_id_account}:role/${self:config.principal_role_name}
+    Lambda02LambdaPermission:
+      Type: "AWS::Lambda::Permission"
+      DependsOn: Lambda02LambdaFunction
       Properties:
-        ApplicationId: !Ref appconfig-test-serverless
-        Description: "configuration profile from serverless"
-        LocationUri: "s3://juver-upload-to-s3/test.json"
-        Name: "config-profile-f"
-        RetrievalRoleArn: https://console.aws.amazon.com/iam/home?region=us-east-1#/roles/AWSAppConfigServiceRole-appconfig-profile-test
-
-    environment-appconfig-serverless:
-      Type: AWS::AppConfig::Environment
-      DependsOn: appconfig-test-serverless
-      Properties:
-        ApplicationId: !Ref appconfig-test-serverless
-        Description: "test serverless"
-        Name: "dev"
+        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda02"
+        Action: lambda:InvokeFunction
+        Principal: arn:aws:iam::${self:custom.principal_id_account}:role/${self:custom.principal_role_name}
