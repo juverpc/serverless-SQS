@@ -5,14 +5,14 @@ frameworkVersion: "2"
 
 plugins:
   - serverless-deployment-bucket
-  - serverless-plugin-split-stacks
+  #- serverless-plugin-split-stacks
 
 custom:
-  splitStacks:
-    nestedStackCount: 2
-    perFunction: false
-    perType: false
-    perGroupFunction: true
+  # splitStacks:
+  #   nestedStackCount: 2
+  #   perFunction: false
+  #   perType: false
+  #   perGroupFunction: true
   aws_account: '624733648801'
 provider:
   name: aws
@@ -110,208 +110,208 @@ functions:
       - schedule:
           rate: cron(*/1 8-23 * * ? *)
   
-  lambda07:
-    handler: lambdas/lambda07/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda07/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda07:
+#     handler: lambdas/lambda07/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda07/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
 
-  lambda08:
-    handler: lambdas/lambda08/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda08/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda08:
+#     handler: lambdas/lambda08/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda08/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
 
-  lambda09:
-    handler: lambdas/lambda09/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda09/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda09:
+#     handler: lambdas/lambda09/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda09/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
 
-  lambda10:
-    handler: lambdas/lambda10/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda10/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda10:
+#     handler: lambdas/lambda10/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda10/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
   
-  lambda11:
-    handler: lambdas/lambda11/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda11/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda11:
+#     handler: lambdas/lambda11/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda11/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
   
-  lambda12:
-    handler: lambdas/lambda12/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda12/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda12:
+#     handler: lambdas/lambda12/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda12/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
 
-  lambda13:
-    handler: lambdas/lambda13/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda13/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda13:
+#     handler: lambdas/lambda13/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda13/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
   
-  lambda14:
-    handler: lambdas/lambda14/lambda_function.lambda_handler
-    memorySize: 1024
-    timeout: 1
-    package:
-      patterns:
-        - "!**"
-        - lambdas/lambda14/*
-      individually: true
-    events:
-      - schedule:
-          rate: cron(*/1 8-23 * * ? *)
+#   lambda14:
+#     handler: lambdas/lambda14/lambda_function.lambda_handler
+#     memorySize: 1024
+#     timeout: 1
+#     package:
+#       patterns:
+#         - "!**"
+#         - lambdas/lambda14/*
+#       individually: true
+#     events:
+#       - schedule:
+#           rate: cron(*/1 8-23 * * ? *)
 
-resources:
-  Resources:
-    Lambda01LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda01LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda01"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda02LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda02LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda02"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda03LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda03LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda03"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda04LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda04LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda04"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda05LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda05LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda05"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda06LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda06LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda06"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda07LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda07LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda07"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda08LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda08LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda08"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda09LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda09LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda09"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda10LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda10LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda10"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
+# resources:
+#   Resources:
+#     Lambda01LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda01LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda01"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda02LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda02LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda02"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda03LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda03LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda03"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda04LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda04LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda04"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda05LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda05LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda05"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda06LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda06LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda06"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda07LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda07LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda07"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda08LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda08LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda08"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda09LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda09LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda09"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda10LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda10LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda10"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
     
-    Lambda11LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda11LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda11"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda12LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda12LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda12"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda13LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda13LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda13"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
-    Lambda14LambdaPermission:
-      Type: "AWS::Lambda::Permission"
-      DependsOn: Lambda14LambdaFunction
-      Properties:
-        FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda14"
-        Action: lambda:InvokeFunction
-        Principal: 438272768936
+#     Lambda11LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda11LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda11"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda12LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda12LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda12"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda13LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda13LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda13"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
+#     Lambda14LambdaPermission:
+#       Type: "AWS::Lambda::Permission"
+#       DependsOn: Lambda14LambdaFunction
+#       Properties:
+#         FunctionName: "arn:aws:lambda:${self:provider.region}:${self:custom.aws_account}:function:${self:service}-${self:provider.stage}-lambda14"
+#         Action: lambda:InvokeFunction
+#         Principal: 438272768936
